@@ -3,8 +3,12 @@ require 'sinatra'
 require_relative 'setting'
 
 get '/' do
+  erb :index
+end
+
+post '/send' do
   client = Client.new
-  text = 'tweet by sinatra'
+  text = params[:message]
   client.update(text)
-  "#{text}"
+  erb :index
 end
