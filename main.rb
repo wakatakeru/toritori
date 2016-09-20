@@ -6,14 +6,11 @@ get '/' do
   client = Client.new
 
   erb :index
-  client.user_timeline
-  
-=begin
-  client.timeline.each do |tweet|
-    print '<hr>'
-    print "#{tweet.user} | #{tweet.full_text}"
+
+  client.home_timeline.each do |tweet|
+    '<hr>'
+    "#{tweet.user} | #{tweet.full_text}"
   end
-=end
 end
 
 post '/send' do
